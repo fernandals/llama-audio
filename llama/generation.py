@@ -233,7 +233,7 @@ class Llama:
     def text_completion(
         self,
         #prompts: List[str],
-        prompts: List[List[int]]
+        prompts: List[List[int]],
         temperature: float = 0.6,
         top_p: float = 0.9,
         max_gen_len: Optional[int] = None,

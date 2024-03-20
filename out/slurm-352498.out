@@ -1,0 +1,37 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+[2024-03-20 20:52:31,460] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: -9) local_rank: 0 (pid: 1665832) of binary: /home/fkldsilva/.conda/envs/tts/bin/python
+Traceback (most recent call last):
+  File "/home/fkldsilva/.conda/envs/tts/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 812, in main
+    run(args)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+========================================================
+example_chat_completion.py FAILED
+--------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+--------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-03-20_20:52:31
+  host      : gpunode2.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : -9 (pid: 1665832)
+  error_file: <N/A>
+  traceback : Signal 9 (SIGKILL) received by PID 1665832
+========================================================
+slurmstepd-gpunode2: error: Detected 1 oom-kill event(s) in StepId=352498.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

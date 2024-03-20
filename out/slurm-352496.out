@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/example_chat_completion.py", line 104, in <module>
+    fire.Fire(main)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 141, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 475, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/example_chat_completion.py", line 35, in main
+    generator = Llama.build(
+                ^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 85, in build
+    torch.distributed.init_process_group("nccl")
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/c10d_logger.py", line 86, in wrapper
+    func_return = func(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/distributed_c10d.py", line 1177, in init_process_group
+    store, rank, world_size = next(rendezvous_iterator)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/rendezvous.py", line 234, in _env_rendezvous_handler
+    rank = int(_get_env_or_raise("RANK"))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/rendezvous.py", line 219, in _get_env_or_raise
+    raise _env_error(env_var)
+ValueError: Error initializing torch.distributed using env:// rendezvous: environment variable RANK expected, but not set

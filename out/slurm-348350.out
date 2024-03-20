@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/example_chat_completion.py", line 8, in <module>
+    from llama import Llama, Dialog
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/__init__.py", line 4, in <module>
+    from .generation import Llama, Dialog
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 236
+    prompts: List[List[int]]
+             ^^^^^^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

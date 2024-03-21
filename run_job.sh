@@ -7,4 +7,4 @@
 # informando ao tch-rs que desejo compilar com cuda na versão 11.7
 export TORCH_CUDA_VERSION=cu117
 
-torchrun example_chat_completion.py llama-2-7b/ tokenizer.model
+torchrun example_text_completion.py llama-2-7b/ tokenizer.model

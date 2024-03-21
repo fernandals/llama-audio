@@ -1,0 +1,63 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/__init__.py:690: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Loaded in 538.95 seconds
+Traceback (most recent call last):
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/example_text_completion.py", line 69, in <module>
+    fire.Fire(main)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 141, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 475, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/example_text_completion.py", line 56, in main
+    results = generator.text_completion(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 267, in text_completion
+    generation_tokens, generation_logprobs = self.generate(
+                                             ^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 164, in generate
+    assert max_prompt_len <= params.max_seq_len
+AssertionError
+[2024-03-20 21:26:43,292] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 1666429) of binary: /home/fkldsilva/.conda/envs/tts/bin/python
+Traceback (most recent call last):
+  File "/home/fkldsilva/.conda/envs/tts/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 812, in main
+    run(args)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+example_text_completion.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-03-20_21:26:43
+  host      : gpunode2.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 1666429)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

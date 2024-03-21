@@ -28,8 +28,8 @@ class Message(TypedDict):
 
 
 class CompletionPrediction(TypedDict, total=False):
-    generation: str
-    tokens: List[str]  # not required
+    generation: List[int]  # generation: str
+    tokens: List[List[int]]  # tokens: List[str]  # not required
     logprobs: List[float]  # not required
 
 
@@ -275,13 +275,16 @@ class Llama:
         if logprobs:
             return [
                 {
-                    "generation": self.tokenizer.decode(t),
-                    "tokens": [self.tokenizer.decode(x) for x in t],
+                    #"generation": self.tokenizer.decode(t),
+                    "generation": t,
+                    #"tokens": [self.tokenizer.decode(x) for x in t],
+                    "tokens": [x for x in t],
                     "logprobs": logprobs_i,
                 }
                 for t, logprobs_i in zip(generation_tokens, generation_logprobs)
             ]
-        return [{"generation": self.tokenizer.decode(t)} for t in generation_tokens]
+        #return [{"generation": self.tokenizer.decode(t)} for t in generation_tokens]
+        return [{"generation": t} for t in generation_tokens]
 
     def chat_completion(
         self,

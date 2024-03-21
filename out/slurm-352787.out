@@ -1,0 +1,56 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/__init__.py:690: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Loaded in 133.07 seconds
+
+Tokenizing prompts :D
+I believe the meaning of life is
+> to be happy. I believe we are all born with the potential to be happy. The meaning of life is to be happy, but the way to get there is not always easy.
+The meaning of life is to be happy. It is not always easy to be happy, but it is possible. I believe that
+
+==================================
+
+Simply put, the theory of relativity states that 
+> 1) time, space, and mass are relative, and 2) the speed of light is constant, regardless of the relative motion of the observer.
+Let’s look at the first point first.
+Ask yourself: how do you measure time? You do so by comparing it to something else. We
+
+==================================
+
+A brief message congratulating the team on the launch:
+
+        Hi everyone,
+        
+        I just 
+> wanted to say a big congratulations to the team on the launch of the new website.
+
+        I think it looks fantastic and I'm sure it will be a huge success.
+
+        I look forward to working with you all on the next project.
+
+        Best wishes
+
+
+
+==================================
+
+Translate English to French:
+        
+        sea otter => loutre de mer
+        peppermint => menthe poivrée
+        plush girafe => girafe peluche
+        cheese =>
+> fromage
+        fish => poisson
+        giraffe => girafe
+        elephant => éléphant
+        cat => chat
+        giraffe => girafe
+        elephant => éléphant
+        cat => chat
+        giraffe => gira
+
+==================================
+

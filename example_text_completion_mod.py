@@ -55,17 +55,17 @@ def main(
     ]
    
     print("\nTokenizing prompts :D")
-    prompts = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts] 
+    prompts_tokens = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts] 
 
     results = generator.text_completion(
-        prompts,
+        prompts_tokens,
         max_gen_len=max_gen_len,
         temperature=temperature,
         top_p=top_p,
     )
     for prompt, result in zip(prompts, results):
         print(prompt)
-        print(f"> {result['generation']}")
+        print(f"> {generator.tokenizer.decode(result['generation'])}")
         print("\n==================================\n")
 
 

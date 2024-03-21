@@ -1,0 +1,47 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/__init__.py:690: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Loaded in 119.18 seconds
+
+Tokenizing prompts :D
+[1, 306, 4658, 278, 6593, 310, 2834, 338]
+> to be happy. I believe we are all born with the potential to be happy. The meaning of life is to be happy, but the way to get there is not always easy.
+The meaning of life is to be happy. It is not always easy to be happy, but it is possible. I believe that
+
+==================================
+
+[1, 3439, 17632, 1925, 29892, 278, 6368, 310, 14215, 537, 5922, 393, 29871]
+> 1) time, space, and mass are relative, and 2) the speed of light is constant, regardless of the relative motion of the observer.
+Let’s look at the first point first.
+Ask yourself: how do you measure time? You do so by comparing it to something else. We
+
+==================================
+
+[1, 319, 11473, 2643, 378, 629, 271, 18099, 278, 3815, 373, 278, 6826, 29901, 13, 13, 4706, 6324, 14332, 29892, 13, 308, 13, 4706, 306, 925, 29871]
+> wanted to say a big congratulations to the team on the launch of the new website.
+
+        I think it looks fantastic and I'm sure it will be a huge success.
+
+        I look forward to working with you all on the next project.
+
+        Best wishes
+
+
+
+==================================
+
+[1, 4103, 9632, 4223, 304, 5176, 29901, 13, 308, 13, 4706, 7205, 4932, 357, 1149, 301, 449, 276, 316, 2778, 13, 4706, 1236, 407, 837, 524, 1149, 6042, 354, 772, 440, 29878, 1318, 13, 4706, 715, 1878, 330, 3055, 1725, 1149, 330, 3055, 1725, 4639, 28754, 13, 4706, 923, 968, 1149]
+> fromage
+        fish => poisson
+        giraffe => girafe
+        elephant => éléphant
+        cat => chat
+        giraffe => girafe
+        elephant => éléphant
+        cat => chat
+        giraffe => gira
+
+==================================
+

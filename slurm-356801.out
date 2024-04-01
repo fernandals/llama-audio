@@ -1,0 +1,141 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/__init__.py:690: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:451.)
+  _C._set_default_tensor_type(t)
+Loaded in 179.62 seconds
+[tensor([[[568, 568, 568,  ..., 568, 568, 568],
+         [804, 804, 804,  ..., 804, 804, 804],
+         [ 10,  10,  10,  ...,  10,  10,  10],
+         ...,
+         [568, 568, 568,  ..., 568, 568, 568],
+         [378, 378, 378,  ..., 378, 378, 378],
+         [731, 731, 731,  ..., 731, 731, 731]]], device='cpu')]
+[tensor([ 568,  568,  568,  568,  568,  568,  568,  330,   93,  219,  219,  164,
+         915,  333,  649,  489,  310,  756,  315,  369,  803,   38,   38,  481,
+         494, 1013,   59,  907,  164,  528,  494,  596,  219,  494,  822,  219,
+         494,  278,  985,  330,  358,  748,   50,  664,   97,  358,  344,  779,
+          50,  363,  562,  851,  444,  640,  358,  615,  192,  539,  152,  536,
+         278,  860,  711,  860,  578,  596,  875,  811,  671,  227,  215,  375,
+         494,  494,  481,  313,  481,  616,  330,  330,  481,  219,   12,  330,
+         152,   52,   53,  444,   57,  696,  924,  528,  858,  803,  629,  375,
+         705,  654,  320,  320,  968,  704,  943,  219,  801,  105,  491,  494,
+         494,  193,  438,  494,  528,  615,  832,  677,  723,  875,  466,  677,
+         556,  233,  105,  375,  286,  578,  147,  216,  832,  331,  655,  748,
+         554,  539,  887,  197,  394,  974,  974,  596,  810,  810,  214,  810,
+         536,  536,  810,  578,  900,  705,  705,  578,  578,  253,  651,   25,
+         528,  330,  494,  330,  105,  578,  578,  375,  578,  578,  494,  494,
+         330,  330,  330,  800,  725,  444,  677,  364,  363,  562,  677,  594,
+         164,  363,  785,  743,  619,  664,  751,  173,  998,  991,  887,  471,
+         820,  481,   96,  801,   70,  770,  800,  800,  221,  995,   44,  358,
+         491,  615,  673,  358,  820,  358,  718,   50,  969,  743,  619,  743,
+         491,  619,  481,  743,  230,  472,  428,  215,  230,   38,  369,  576,
+         638,  770,  615,  481,  481,  358,  336,    6,  164,  785,  984,  444,
+          96,  562,  466,  219,  494,  494,  860,  278,  494,  860,  536,  711,
+         494,  330,  548,  548,  548,  619,  548,  548,  860,  860,  494,  330,
+         330,  619,  253,  364,  344,  344,  472,  267,   53,  775,  392,  312,
+         494,  494,  860,  860,  564,  332,  860,  494,  494,  330,  548,  152,
+         383,  383,  344,  227,  322,  728,  655,  541,  332,  615,  481,  491,
+          93,  900,  858,  911,  461,  830,  444,  358,   29,  748,  887,  206,
+         312,  312,  958,  383,  979,  509,   70,  842,   18,  539,  938,  506,
+         810,  810,  810,  900,  810,  494,   96,  911,  494,  494,  995,  619,
+         592,  315,  592,  332,   25,  227,   15,  466,   38,  481,  121,  997,
+         315,   70,  748,  701,  466,  998,   85,  970,  215,  618,  315,  215,
+         215,  105,  330,  494,  578,  330,  820,  743,  659,  673,  518,  312,
+         997,  801,  330,  801,  286,  578,  588,  997,   38,  688,  688,  366,
+         310,  169,    6, 1008,  785,    6,  832,  366,  414,  366,  414,  152,
+         887,   52,  364,  373,  215,  105,  315,  197,  197,  215,  491,  105,
+         219,  706,   74,  147,  369,  806,  748,  997,  688,  105,  315,  197,
+         215,  215,  197,  105,  330,  721,  214,   93,  436,   59,  640,  803,
+         192,  369,  659,   38,   70,  748,  481,  481,  619,  215,  330,  315,
+         330,  330,  619,  619,  801,  616,   35,  801,  619,  330,  776,  330,
+         801,  619,  105,  105,  105,  801,  105,  105,  801,   93,  105,  588,
+         219,  481,  616,  698,  698,  698,   35,  216,  411,  411,  793,  829,
+         785,  152,  539,  779,  998,  442,  629,  564,  737,  461,  984,  829,
+         311,  624,  875,  998,  105,  578,  422,  278,  494,  494,  494,  436,
+         801,  578,  578,  219,  562,  671,  702,  677,  940,  551,  120,  227,
+         911,  640,  344,  664,  664,  337,  779, 1013,  498,  998,   96,  344,
+          70,  332,  743,  801,  743,  619,  616,  607,  152,  858,  428,  998,
+         743,  471,  320,   38,  756,   70,  820,  221,  745,  756,  578,  147,
+         756,  324,  653,  466,   52,  640,  832,  331,  466,   20,  369,  331,
+         509,  326,  970,  806,  245,  588,  801,  629,  215,  105,  330,  369,
+         801,  494,  578,  494,  801,  330,  751,  312,  640,   38,   44,  230,
+         155,  789,  664,  383,  491,  481,  278,  309,  494,  810,  810,  291,
+         536,  810,  810,  536,  278,  810,  615,  383,  341,  383,  860,  152,
+         989,  713,  110,  997,  219,  696,  770,  105,  315,  105,  330,  315,
+         330,  619,  315,  698,  801,  698,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,  568,
+         568,  568,  568,  568], device='cpu')]
+Traceback (most recent call last):
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/audio_inference.py", line 80, in <module>
+    fire.Fire(main)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 141, in Fire
+    component_trace = _Fire(component, args, parsed_flag_args, context, name)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 475, in _Fire
+    component, remaining_args = _CallAndUpdateTrace(
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/fire/core.py", line 691, in _CallAndUpdateTrace
+    component = fn(*varargs, **kwargs)
+                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/audio_inference.py", line 67, in main
+    results = generator.text_completion(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 267, in text_completion
+    generation_tokens, generation_logprobs = self.generate(
+                                             ^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py", line 170, in generate
+    tokens[k, : len(t)] = torch.tensor(t, dtype=torch.long, device="cuda")
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: only integer tensors of a single element can be converted to an index
+[2024-03-31 22:53:49,588] torch.distributed.elastic.multiprocessing.api: [ERROR] failed (exitcode: 1) local_rank: 0 (pid: 2009227) of binary: /home/fkldsilva/.conda/envs/tts/bin/python
+Traceback (most recent call last):
+  File "/home/fkldsilva/.conda/envs/tts/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 812, in main
+    run(args)
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/run.py", line 803, in run
+    elastic_launch(
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 135, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 268, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+audio_inference.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-03-31_22:53:49
+  host      : gpunode2.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2009227)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

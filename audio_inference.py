@@ -59,8 +59,12 @@ def main(
     codes = get_codes_from_dir()
     print(codes)
 
-    prompts: List[List[int]] = codes
-   
+    audio_codes = [x[0][0] for x in codes]
+    print(audio_codes)
+
+    prompts: List[List[int]] = [audio_codes] 
+  
+    '''
     results = generator.text_completion(
         prompts,
         max_gen_len=max_gen_len,
@@ -72,6 +76,7 @@ def main(
         print(prompt)
         print(f"> {result['generation']}")
         print("\n==================================\n")
+    '''
 
 if __name__ == "__main__":
     fire.Fire(main)

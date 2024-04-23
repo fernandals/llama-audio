@@ -6,24 +6,9 @@ import torch
 import os
 import numpy as np
 
+from datasets import load_dataset
 from llama import Llama
 from typing import List
-
-PATH = 'audios/dac/'
-
-def get_dacs(dir_path: str = PATH) -> [str]:
-    codes_path = list(map(lambda x: PATH + '/' + x, os.listdir(PATH)))
-    return codes_path
-
-def get_code_from_path(path: str) -> torch:
-    code = np.load(path, allow_pickle=True)[()]
-    code = torch.from_numpy(code['codes'].astype(int))
-    return code
-
-def get_codes_from_dir(dir_path: str = PATH):
-    dacs = get_dacs(dir_path)
-    codes = list(map(lambda x: get_code_from_path(x), dacs))
-    return codes
 
 def main(
     ckpt_dir: str,
@@ -55,17 +40,18 @@ def main(
         max_batch_size=max_batch_size,
     )
 
-    # codes from audio!
-    #codes = get_codes_from_dir()
-    #print(codes)
+    # load data 
+    cnn_news_ptbr = load_dataset('celsowm/cnn_news_ptbr', split="train")
+    columns_to_remove = ['titulo', 'link', 'resumo', 'categoria', 'data_hora']
+    cnn_news_ptbr = cnn_news_ptbr.remove_columns(columns_to_remove) 
+   
+    for batch in cnn_news_ptbr.iter(batch_size=5):
+        print(batch)
+        break
 
-    #audio_codes = [x[0][0] for x in codes]
-    #print(audio_codes)
-
-    #prompts: List[List[int]] = [audio_codes] 
-  
-    prompts: List[List[int]] = [[45, 83, 83, 83, 83, 45, 8, 2740, 2575, 625, 1886, 384, 384, 5745, 7236, 889, 1841, 7504, 4959, 2620, 418, 1781, 6618, 3967, 3985, 5234, 806, 3654, 493, 83, 532, 1539, 203, 4562, 2070, 956, 3644, 5068, 2433, 2016, 2843, 2058, 3997, 4012, 7260, 5365, 183, 7357, 3644, 2940, 5481, 4821, 5191, 2679, 866, 207, 690, 2958, 3978, 2577, 7668, 98, 889, 4683, 1912, 8100, 5322, 4562, 7090, 2437, 4012, 6301, 7348, 3094, 1284, 4230, 3563, 8174, 7806, 4944, 1820, 75, 2740, 1190, 3240, 7969, 6245, 5288, 7762, 7925, 116, 3186, 3353, 6646, 950, 7378, 3107, 2035, 1812, 7995, 571, 1184, 2201, 1410, 1590, 4106, 3772, 1317, 3229, 5887, 4348, 1220, 146, 1883, 2546, 3966, 401, 6061, 1477, 522, 3498, 3413, 1341, 3417, 377, 1815, 2429, 1590, 2329, 729, 1652, 3166, 1294, 875, 2304, 3829, 5745, 7928, 6295, 1381, 5613, 3985, 619, 3498, 6289, 163, 4027, 6030, 7998, 2000, 2867, 6679, 3752, 254, 8, 20, 45, 83, 83, 83, 20, 1564, 3575]]
-
+    ''' 
+    prompts: List[List[int]] = [[]] 
+    
     print(len(prompts[0]))
 
     for x in prompts:
@@ -87,6 +73,8 @@ def main(
         print(prompt)
         print(f"> {result['generation']}")
         print("\n==================================\n")
+
+    '''
 
 if __name__ == "__main__":
     fire.Fire(main)

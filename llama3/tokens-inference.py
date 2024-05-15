@@ -39,7 +39,7 @@ def main(
         temperature=temperature,
         top_p=top_p,
     )
-    for prompt, result in zip(prompts, results):
+    for prompt, result in zip(prompt_tokens, results):
         print(prompt)
         print(f"> {result['generation']}")
         print("\n==================================\n")

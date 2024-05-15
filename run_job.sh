@@ -9,6 +9,5 @@
 export TORCH_CUDA_VERSION=cu117
 
 torchrun llama3/tokens-inference.py \
-	--ckpt_dir Meta-Llama-3-8B/ \
-	--tokenizer_path Meta-Llama-3-8B/tokenizer.model \
-	--max_sex_len 512
+	--ckpt_dir llama3/Meta-Llama-3-8B/ \
+	--tokenizer_path llama3/Meta-Llama-3-8B/tokenizer.model

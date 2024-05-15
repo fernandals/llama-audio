@@ -1,0 +1,11 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/__init__.py:747: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:431.)
+  _C._set_default_tensor_type(t)
+Loaded in 22.92 seconds
+[128000, 40, 4510, 279, 7438, 315, 2324, 374]
+> [311, 387, 6380, 13, 1102, 374, 264, 4382, 7434, 11, 719, 433, 374, 1633, 5107, 311, 11322, 13, 1102, 374, 5107, 311, 11322, 1606, 315, 682, 279, 77549, 430, 584, 527, 15320, 13054, 21632, 449, 13, 578, 77549, 430, 584, 527, 15320, 13054, 21632, 449, 527, 279, 6305, 430, 584, 1893, 369, 13520, 13, 4314, 77549, 527, 279, 6305, 430, 584, 1893, 369, 13520]
+
+==================================
+

@@ -1,0 +1,17 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts0/lib/python3.10/site-packages/torch/__init__.py:747: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:431.)
+  _C._set_default_tensor_type(t)
+Loaded in 96.55 seconds
+Using cache found in /home/fkldsilva/.cache/torch/hub/bshall_hubert_main
+/home/fkldsilva/.conda/envs/tts0/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:28: UserWarning: torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.
+  warnings.warn("torch.nn.utils.weight_norm is deprecated in favor of torch.nn.utils.parametrizations.weight_norm.")
+torch.Size([1051])
+/mnt/beegfs/scratch/fkldsilva/llama2-audio/llama/generation.py:170: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  tokens[k, : len(t)] = torch.tensor(t, dtype=torch.long, device="cuda")
+tensor(6)
+> [4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345, 4345]
+
+==================================
+

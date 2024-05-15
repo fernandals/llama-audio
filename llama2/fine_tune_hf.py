@@ -1,3 +1,5 @@
+# script to fine tune LLaMA 2 HF 
+
 import wandb
 import random
 import os

@@ -1,22 +1,23 @@
 # Copyright (c) Meta Platforms, Inc. and affiliates.
 # This software may be used and distributed according to the terms of the Llama 2 Community License Agreement.
 
-import fire
-import torch
-import os
-import numpy as np
+# LLaMA 2 inference connected with HuBERT audio encoder (using HF dataset)
 
-from datasets import load_dataset
+import fire
+
 from llama import Llama
 from typing import List
+
+import torch, torchaudio
+from torch import nn
 
 def main(
     ckpt_dir: str,
     tokenizer_path: str,
     temperature: float = 0.6,
     top_p: float = 0.9,
-    max_seq_len: int = 200,
-    max_gen_len: int = 200,
+    max_seq_len: int = 1100,
+    max_gen_len: int = 64,
     max_batch_size: int = 4,
 ):
     """
@@ -40,41 +41,41 @@ def main(
         max_batch_size=max_batch_size,
     )
 
-    # load data 
-    cnn_news_ptbr = load_dataset('celsowm/cnn_news_ptbr', split="train")
-    columns_to_remove = ['titulo', 'link', 'resumo', 'categoria', 'data_hora']
-    cnn_news_ptbr = cnn_news_ptbr.remove_columns(columns_to_remove) 
-   
-    for batch in cnn_news_ptbr.iter(batch_size=5):
-        print(batch)
-        break
+    from datasets import load_dataset
+    fleurs = load_dataset("google/fleurs", "en_us", split="test")
+    audio = fleurs[0]["audio"]
+    print(audio)
 
-    ''' 
-    prompts: List[List[int]] = [[]] 
+    # Lendo áudio
+    wav, sr = torchaudio.load("JN.wav")
+    wav = wav.unsqueeze(0).cuda()
     
-    print(len(prompts[0]))
+    # torchaudio.nn.functional.resample
+    
+    # Load checkpoint (either hubert_soft or hubert_discrete)
+    hubert = torch.hub.load("bshall/hubert:main", "hubert_discrete", trust_repo=True).cuda()
 
-    for x in prompts:
-        y = generator.text_completion(
-                prompts,
-                max_gen_len=max_gen_len,
-                temperature=temperature,
-                top_p=top_p,
-        )
+    from torch.cuda.amp import autocast
+    with autocast():
+        #units = hubert.units(wav)
+        units = hubert.units(audio)
+
+    print(units.shape)
+    prompts = units
+    prompts_tokens = [units]
 
     results = generator.text_completion(
-        prompts,
+        prompts_tokens,
         max_gen_len=max_gen_len,
         temperature=temperature,
         top_p=top_p,
     )
-
     for prompt, result in zip(prompts, results):
         print(prompt)
+        #print(f"> {generator.tokenizer.decode(result['generation'])}")
         print(f"> {result['generation']}")
         print("\n==================================\n")
 
-    '''
 
 if __name__ == "__main__":
     fire.Fire(main)

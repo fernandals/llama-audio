@@ -1,7 +1,5 @@
-# llama2-audio
+# llama-audio
 
-## instructions for executing the code (only suports inference)
+## Description
 
-1. the main folder must contain another folder with the llama checkpoint and the tokenizer
-
-2. the run_job.sh script has all code necessary to execute the inference
+This is a research project to fine tune LLaMA model on audio codes.

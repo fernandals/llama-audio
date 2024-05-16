@@ -275,15 +275,15 @@ class Transformer(nn.Module):
         )
 
     @torch.inference_mode()
-    def forward(self, tokens: torch.Tensor, start_pos: int):
+    def forward(self, tokens: torch.Tensor, start_pos: int, h=None):
         _bsz, seqlen = tokens.shape
-        
-        # nesse caso a var tokens representa nossos embeddings
-        # ent eu faria algo como
-        # h = tokens
-        # pra n precisar modificar linha por linha
 
-        h = self.tok_embeddings(tokens)
+        # in case the embeddings weren't inputed
+        if h is None:
+            h = self.tok_embeddings(tokens)
+        else:
+            print("well...")
+
         self.freqs_cis = self.freqs_cis.to(h.device)
         freqs_cis = self.freqs_cis[start_pos : start_pos + seqlen]
 
@@ -305,4 +305,5 @@ class Transformer(nn.Module):
             h = layer(h, start_pos, freqs_cis, mask)
         h = self.norm(h)
         output = self.output(h).float()
+        
         return output

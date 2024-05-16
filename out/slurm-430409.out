@@ -1,0 +1,108 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/__init__.py:747: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:431.)
+  _C._set_default_tensor_type(t)
+Loaded in 22.79 seconds
+tensor([[[-1.4305e-04,  1.0777e-04, -1.9646e-04,  ...,  2.0218e-04,
+           1.4842e-05,  3.0136e-04],
+         [ 7.0496e-03, -3.4904e-04, -6.9275e-03,  ..., -4.9133e-03,
+           6.1646e-03, -1.0300e-03],
+         [ 2.0905e-03,  1.9550e-04, -5.0659e-03,  ...,  1.5442e-02,
+          -7.7515e-03, -1.5625e-02],
+         ...,
+         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  ...,  0.0000e+00,
+           0.0000e+00,  0.0000e+00],
+         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  ...,  0.0000e+00,
+           0.0000e+00,  0.0000e+00],
+         [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  ...,  0.0000e+00,
+           0.0000e+00,  0.0000e+00]]])
+well...
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/tokens-inference.py", line 49, in <module>
+[rank0]:     fire.Fire(main)
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/fire/core.py", line 143, in Fire
+[rank0]:     component_trace = _Fire(component, args, parsed_flag_args, context, name)
+[rank0]:                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/fire/core.py", line 477, in _Fire
+[rank0]:     component, remaining_args = _CallAndUpdateTrace(
+[rank0]:                                 ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/fire/core.py", line 693, in _CallAndUpdateTrace
+[rank0]:     component = fn(*varargs, **kwargs)
+[rank0]:                 ^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/tokens-inference.py", line 36, in main
+[rank0]:     results = generator.text_completion(
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/generation.py", line 268, in text_completion
+[rank0]:     generation_tokens, generation_logprobs = self.generate(
+[rank0]:                                              ^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/generation.py", line 183, in generate
+[rank0]:     logits = self.model.forward(tokens[:, prev_pos:cur_pos], prev_pos, h)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 115, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/model.py", line 305, in forward
+[rank0]:     h = layer(h, start_pos, freqs_cis, mask)
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/model.py", line 246, in forward
+[rank0]:     h = x + self.attention(self.attention_norm(x), start_pos, freqs_cis, mask)
+[rank0]:             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1532, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1541, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/model.py", line 160, in forward
+[rank0]:     xq, xk = apply_rotary_emb(xq, xk, freqs_cis=freqs_cis)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/model.py", line 72, in apply_rotary_emb
+[rank0]:     freqs_cis = reshape_for_broadcast(freqs_cis, xq_)
+[rank0]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/beegfs/scratch/fkldsilva/llama-audio/llama3/llama/model.py", line 60, in reshape_for_broadcast
+[rank0]:     assert freqs_cis.shape == (x.shape[1], x.shape[-1])
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: AssertionError
+E0515 22:31:56.707000 140310036697280 torch/distributed/elastic/multiprocessing/api.py:826] failed (exitcode: 1) local_rank: 0 (pid: 409303) of binary: /home/fkldsilva/.conda/envs/tts2/bin/python
+Traceback (most recent call last):
+  File "/home/fkldsilva/.conda/envs/tts2/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 347, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/distributed/run.py", line 879, in main
+    run(args)
+  File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/distributed/run.py", line 870, in run
+    elastic_launch(
+  File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 132, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/distributed/launcher/api.py", line 263, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+llama3/tokens-inference.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2024-05-15_22:31:56
+  host      : gpunode1.localdomain
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 409303)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

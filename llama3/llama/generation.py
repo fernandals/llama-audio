@@ -159,14 +159,17 @@ class Llama:
         if logprobs:
             token_logprobs = torch.zeros_like(tokens, dtype=torch.float)
 
-        # generating embeddings outside forward
-        h = self.model.tok_embeddings(tokens)
-
         prev_pos = 0
         eos_reached = torch.tensor([False] * bsz, device="cuda")
         input_text_mask = tokens != pad_id
+        
+        from fairscale.nn.model_parallel.layers import VocabParallelEmbedding
+        tok_embeddings = VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
+
         if min_prompt_len == total_len:
-            # aqui deve entrar um embedding
+            h = tok_embeddings(tokens)
+
+            # calling forward with the embeddings
             logits = self.model.forward(tokens, prev_pos, h)
             token_logprobs = -F.cross_entropy(
                 input=logits.transpose(1, 2),
@@ -177,8 +180,14 @@ class Llama:
 
         stop_tokens = torch.tensor(list(self.tokenizer.stop_tokens))
 
+        #print("in generation!")
+        #print(tokens)
+        #print(tokens.shape)
+
         for cur_pos in range(min_prompt_len, total_len):
-            # outro embedding aqui
+            h = tok_embeddings(tokens[:, prev_pos:cur_pos])
+
+            # calling forward with embeddings
             logits = self.model.forward(tokens[:, prev_pos:cur_pos], prev_pos, h)
             if temperature > 0:
                 probs = torch.softmax(logits[:, -1] / temperature, dim=-1)

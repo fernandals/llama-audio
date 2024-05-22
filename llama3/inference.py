@@ -9,9 +9,6 @@ import fire
 
 from llama import Llama
 
-from datasets import load_dataset
-
-from torch.cuda.amp import autocast
 
 def main(
     ckpt_dir: str,
@@ -33,22 +30,11 @@ def main(
         max_batch_size=max_batch_size,
     )
 
-    fleurs = load_dataset("google/fleurs", "en_us", split="test")
-    id_speaker = fleurs[1]["id"]
-    transcript = fleurs[1]["transcription"]
-    audio = fleurs[1]["audio"]
+    #print(generator.tokenizer.n_words)
 
-    text_prompts: List[str] = [transcript]
-    text_prompt_tokens = [generator.tokenizer.encode(x, bos=True, eos=True) for x in prompts]
-   
-    hubert = torch.hub.load("bshall/hubert:main", "hubert_discrete", trust_repo=True).cuda()
-    with autocast():
-        units = hubert.units(audio)
-
-    audio_prompt_tokens = [units] 
-
-    prompts_tokens = id_speaker + text_prompt_tokens + audio_prompt_tokens
-
+    prompts: List[str] = ["I believe the meaning of life is"]
+    prompt_tokens = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts]
+    
     results = generator.text_completion(
         prompt_tokens,
         max_gen_len=max_gen_len,
@@ -58,6 +44,7 @@ def main(
     for prompt, result in zip(prompt_tokens, results):
         print(prompt)
         print(f"> {result['generation']}")
+        print(f"> {generator.tokenizer.decode(result['generation'])}")
         print("\n==================================\n")
 
 

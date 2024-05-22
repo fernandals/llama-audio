@@ -1,0 +1,213 @@
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/__init__.py:747: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:431.)
+  _C._set_default_tensor_type(t)
+Loaded in 12.40 seconds
+in generation!
+tensor([[128000,     40,   4510,    279,   7438,    315,   2324,    374,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,
+             -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1,     -1]])
+torch.Size([1, 72])
+in model!
+tensor([[128000,     40,   4510,    279,   7438,    315,   2324,    374]])
+torch.Size([1, 8])
+in model!
+tensor([[311]])
+torch.Size([1, 1])
+in model!
+tensor([[387]])
+torch.Size([1, 1])
+in model!
+tensor([[6380]])
+torch.Size([1, 1])
+in model!
+tensor([[13]])
+torch.Size([1, 1])
+in model!
+tensor([[1102]])
+torch.Size([1, 1])
+in model!
+tensor([[374]])
+torch.Size([1, 1])
+in model!
+tensor([[264]])
+torch.Size([1, 1])
+in model!
+tensor([[4382]])
+torch.Size([1, 1])
+in model!
+tensor([[7434]])
+torch.Size([1, 1])
+in model!
+tensor([[11]])
+torch.Size([1, 1])
+in model!
+tensor([[719]])
+torch.Size([1, 1])
+in model!
+tensor([[433]])
+torch.Size([1, 1])
+in model!
+tensor([[374]])
+torch.Size([1, 1])
+in model!
+tensor([[1633]])
+torch.Size([1, 1])
+in model!
+tensor([[5107]])
+torch.Size([1, 1])
+in model!
+tensor([[311]])
+torch.Size([1, 1])
+in model!
+tensor([[11322]])
+torch.Size([1, 1])
+in model!
+tensor([[13]])
+torch.Size([1, 1])
+in model!
+tensor([[1102]])
+torch.Size([1, 1])
+in model!
+tensor([[374]])
+torch.Size([1, 1])
+in model!
+tensor([[5107]])
+torch.Size([1, 1])
+in model!
+tensor([[311]])
+torch.Size([1, 1])
+in model!
+tensor([[11322]])
+torch.Size([1, 1])
+in model!
+tensor([[1606]])
+torch.Size([1, 1])
+in model!
+tensor([[315]])
+torch.Size([1, 1])
+in model!
+tensor([[682]])
+torch.Size([1, 1])
+in model!
+tensor([[279]])
+torch.Size([1, 1])
+in model!
+tensor([[77549]])
+torch.Size([1, 1])
+in model!
+tensor([[430]])
+torch.Size([1, 1])
+in model!
+tensor([[584]])
+torch.Size([1, 1])
+in model!
+tensor([[527]])
+torch.Size([1, 1])
+in model!
+tensor([[15320]])
+torch.Size([1, 1])
+in model!
+tensor([[13054]])
+torch.Size([1, 1])
+in model!
+tensor([[21632]])
+torch.Size([1, 1])
+in model!
+tensor([[449]])
+torch.Size([1, 1])
+in model!
+tensor([[13]])
+torch.Size([1, 1])
+in model!
+tensor([[578]])
+torch.Size([1, 1])
+in model!
+tensor([[77549]])
+torch.Size([1, 1])
+in model!
+tensor([[430]])
+torch.Size([1, 1])
+in model!
+tensor([[584]])
+torch.Size([1, 1])
+in model!
+tensor([[527]])
+torch.Size([1, 1])
+in model!
+tensor([[15320]])
+torch.Size([1, 1])
+in model!
+tensor([[13054]])
+torch.Size([1, 1])
+in model!
+tensor([[21632]])
+torch.Size([1, 1])
+in model!
+tensor([[449]])
+torch.Size([1, 1])
+in model!
+tensor([[527]])
+torch.Size([1, 1])
+in model!
+tensor([[279]])
+torch.Size([1, 1])
+in model!
+tensor([[6305]])
+torch.Size([1, 1])
+in model!
+tensor([[430]])
+torch.Size([1, 1])
+in model!
+tensor([[584]])
+torch.Size([1, 1])
+in model!
+tensor([[1893]])
+torch.Size([1, 1])
+in model!
+tensor([[369]])
+torch.Size([1, 1])
+in model!
+tensor([[13520]])
+torch.Size([1, 1])
+in model!
+tensor([[13]])
+torch.Size([1, 1])
+in model!
+tensor([[4314]])
+torch.Size([1, 1])
+in model!
+tensor([[77549]])
+torch.Size([1, 1])
+in model!
+tensor([[527]])
+torch.Size([1, 1])
+in model!
+tensor([[279]])
+torch.Size([1, 1])
+in model!
+tensor([[6305]])
+torch.Size([1, 1])
+in model!
+tensor([[430]])
+torch.Size([1, 1])
+in model!
+tensor([[584]])
+torch.Size([1, 1])
+in model!
+tensor([[1893]])
+torch.Size([1, 1])
+in model!
+tensor([[369]])
+torch.Size([1, 1])
+[128000, 40, 4510, 279, 7438, 315, 2324, 374]
+> [311, 387, 6380, 13, 1102, 374, 264, 4382, 7434, 11, 719, 433, 374, 1633, 5107, 311, 11322, 13, 1102, 374, 5107, 311, 11322, 1606, 315, 682, 279, 77549, 430, 584, 527, 15320, 13054, 21632, 449, 13, 578, 77549, 430, 584, 527, 15320, 13054, 21632, 449, 527, 279, 6305, 430, 584, 1893, 369, 13520, 13, 4314, 77549, 527, 279, 6305, 430, 584, 1893, 369, 13520]
+
+==================================
+

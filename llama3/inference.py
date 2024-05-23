@@ -34,7 +34,9 @@ def main(
 
     prompts: List[str] = ["I believe the meaning of life is"]
     prompt_tokens = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts]
+   
     
+
     results = generator.text_completion(
         prompt_tokens,
         max_gen_len=max_gen_len,

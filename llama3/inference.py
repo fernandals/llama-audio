@@ -9,6 +9,7 @@ import fire
 
 from llama import Llama
 
+from fairscale.nn.model_parallel.layers import VocabParallelEmbedding
 
 def main(
     ckpt_dir: str,
@@ -23,6 +24,8 @@ def main(
     The context window of llama3 models is 8192 tokens, so `max_seq_len` needs to be <= 8192.
     `max_gen_len` is needed because pre-trained models usually do not stop completions naturally.
     """
+    print("start point")
+
     generator = Llama.build(
         ckpt_dir=ckpt_dir,
         tokenizer_path=tokenizer_path,
@@ -30,12 +33,22 @@ def main(
         max_batch_size=max_batch_size,
     )
 
+    print("load llama")
+        
     #print(generator.tokenizer.n_words)
 
     prompts: List[str] = ["I believe the meaning of life is"]
+    print(prompts[0])
+
     prompt_tokens = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts]
-   
-    
+    print(prompt_tokens[0])
+
+    tok_embeddings = VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
+    #h = [tok_embeddings(tokens) for tokens in prompt_tokens]
+    #print(h[0])
+
+    #logits = generator.model.foward(prompt_tokens, 0, h) 
+    #print(logits)
 
     results = generator.text_completion(
         prompt_tokens,
@@ -43,11 +56,14 @@ def main(
         temperature=temperature,
         top_p=top_p,
     )
+ 
+    '''
     for prompt, result in zip(prompt_tokens, results):
         print(prompt)
         print(f"> {result['generation']}")
         print(f"> {generator.tokenizer.decode(result['generation'])}")
         print("\n==================================\n")
+    '''
 
 
 if __name__ == "__main__":

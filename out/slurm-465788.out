@@ -1,0 +1,33 @@
+start point
+> initializing model parallel with size 1
+> initializing ddp with size 1
+> initializing pipeline with size 1
+/home/fkldsilva/.conda/envs/tts2/lib/python3.12/site-packages/torch/__init__.py:747: UserWarning: torch.set_default_tensor_type() is deprecated as of PyTorch 2.1, please use torch.set_default_dtype() and torch.set_default_device() as alternatives. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:431.)
+  _C._set_default_tensor_type(t)
+Loaded in 12.42 seconds
+load llama
+['I believe the meaning of life is']
+tensor([[128000,     40,   4510,    279,   7438,    315,   2324,    374]])
+tensor([[[-1.4305e-04,  1.0777e-04, -1.9646e-04,  ...,  2.0218e-04,
+           1.4842e-05,  3.0136e-04],
+         [ 7.0496e-03, -3.4904e-04, -6.9275e-03,  ..., -4.9133e-03,
+           6.1646e-03, -1.0300e-03],
+         [ 2.0905e-03,  1.9550e-04, -5.0659e-03,  ...,  1.5442e-02,
+          -7.7515e-03, -1.5625e-02],
+         ...,
+         [ 1.3046e-03,  6.0272e-04,  5.7220e-04,  ...,  5.3024e-04,
+           3.3722e-03, -3.5248e-03],
+         [ 3.3722e-03,  5.2795e-03, -1.1658e-02,  ..., -5.2795e-03,
+           1.0529e-03,  1.1658e-02],
+         [-2.9144e-03,  1.5335e-03, -2.4605e-04,  ...,  9.7046e-03,
+           4.2114e-03,  7.9956e-03]]],
+       grad_fn=<_ReduceFromModelParallelRegionBackward>)
+well...
+tensor([[[ 6.8750,  8.7500, 12.9375,  ..., -4.4688, -4.4688, -4.4688],
+         [ 5.3750,  6.7188,  4.6875,  ..., -5.2500, -5.2500, -5.2500],
+         [ 4.5625,  0.2236, -3.0469,  ..., -9.6250, -9.6250, -9.6250],
+         ...,
+         [ 0.0364,  2.5938, -2.3125,  ..., -8.9375, -8.9375, -8.9375],
+         [10.0000,  7.5625,  3.8594,  ..., -3.4844, -3.4844, -3.4844],
+         [ 3.7344,  4.0625,  0.3203,  ..., -8.0625, -8.0625, -8.0625]]],
+       dtype=torch.float32)

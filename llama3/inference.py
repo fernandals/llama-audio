@@ -46,15 +46,15 @@ def main(
 
     tokens = torch.tensor(prompt_tokens)
 
-    #tok_embeddings = VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
+    #VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
     h = generator.model.tok_embeddings(tokens)    
     print(h)
 
     logits = generator.model.forward(tokens, 0, h) 
     print(logits)
 
-    print()
-    print("call generator")
+
+    '''
     results = generator.text_completion(
         prompt_tokens,
         max_gen_len=max_gen_len,
@@ -62,7 +62,6 @@ def main(
         top_p=top_p,
     )
 
-    '''
     for prompt, result in zip(prompt_tokens, results):
         print(prompt)
         print(f"> {result['generation']}")

@@ -285,13 +285,13 @@ class Transformer(nn.Module):
             print("well...")
             h = emb
 
-        print("tok")
-        print(tokens)
-        print(tokens.shape)
+        #print("tok")
+        #print(tokens)
+        #print(tokens.shape)
 
-        print("in")
-        print(h)
-        print(h.shape)
+        #print("in")
+        #print(h)
+        #print(h.shape)
 
         self.freqs_cis = self.freqs_cis.to(h.device)
         freqs_cis = self.freqs_cis[start_pos : start_pos + seqlen]
@@ -315,8 +315,8 @@ class Transformer(nn.Module):
         h = self.norm(h)
         output = self.output(h).float()
        
-        print("out")
-        print(output)
-        print(output.shape)
+        #print("out")
+        #print(output)
+        #print(output.shape)
 
         return output

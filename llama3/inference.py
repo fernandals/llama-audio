@@ -6,6 +6,7 @@
 from typing import List
 
 import fire
+import torch
 
 from llama import Llama
 
@@ -38,25 +39,29 @@ def main(
     #print(generator.tokenizer.n_words)
 
     prompts: List[str] = ["I believe the meaning of life is"]
-    print(prompts[0])
+    print(prompts)
 
     prompt_tokens = [generator.tokenizer.encode(x, bos=True, eos=False) for x in prompts]
-    print(prompt_tokens[0])
+    print(torch.tensor(prompt_tokens))
 
-    tok_embeddings = VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
-    #h = [tok_embeddings(tokens) for tokens in prompt_tokens]
-    #print(h[0])
+    tokens = torch.tensor(prompt_tokens)
 
-    #logits = generator.model.foward(prompt_tokens, 0, h) 
-    #print(logits)
+    #tok_embeddings = VocabParallelEmbedding( 8, 4096, init_method=lambda x : x )
+    h = generator.model.tok_embeddings(tokens)    
+    print(h)
 
+    logits = generator.model.forward(tokens, 0, h) 
+    print(logits)
+
+    print()
+    print("call generator")
     results = generator.text_completion(
         prompt_tokens,
         max_gen_len=max_gen_len,
         temperature=temperature,
         top_p=top_p,
     )
- 
+
     '''
     for prompt, result in zip(prompt_tokens, results):
         print(prompt)
